@@ -4,14 +4,14 @@ int win, lose, draw;
 int player_coin, com_coin, bet_coin;
 
 
-int title();// Å¸ÀÌÆ² È­¸é Ãâ·Â
+int title();// íƒ€ì´í‹€ í™”ë©´ ì¶œë ¥
 
 float set_level();
-void set_coin(float level); //ÃÊ±â ÄÚÀÎ°³¼ö ¼³Á¤
+void set_coin(float level); //ì´ˆê¸° ì½”ì¸ê°œìˆ˜ ì„¤ì •
 
 void betting();
-int select_player(); //ÇÃ·¹ÀÌ¾î rsp 
-int select_computer(); //ÄÄÇ»ÅÍ rsp
+int select_player(); //í”Œë ˆì´ì–´ rsp 
+int select_computer(); //ì»´í“¨í„° rsp
 int match();
 
 void stats(int result);
@@ -21,7 +21,7 @@ void ani_2(int mode); //flash 0:red 1:blue 2:green
 void ani_3(int mode); //drop 0:red 1:green
 
 void rdot(int x, int y);
-void sdot(int x, int y); // ÀÎ¼ö, µµÆ® Ã¹ÁÙÀÇ ½ÃÀÛ ÁÂÇ¥
+void sdot(int x, int y); // ì¸ìˆ˜, ë„íŠ¸ ì²«ì¤„ì˜ ì‹œì‘ ì¢Œí‘œ
 void pdot(int x, int y);
 
 void clear();
@@ -32,7 +32,7 @@ void gotoxy(int x, int y);
 
 int main(void)
 {
-    system("mode con cols=100 lines=25 | title °¡À§¹ÙÀ§º¸ °ÔÀÓ!");
+    system("mode con cols=100 lines=25 | title ê°€ìœ„ë°”ìœ„ë³´ ê²Œì„!");
     clear_cursor(0);
 
     while (true)
@@ -46,34 +46,34 @@ int main(void)
         {
         case 0:
             system("cls");
-            break; //°ÔÀÓ½ÃÀÛ
+            break; //ê²Œì„ì‹œì‘
 
         case 1:
             system("cls");
-            exit(0); //°ÔÀÓÁ¾·á
+            exit(0); //ê²Œì„ì¢…ë£Œ
         }
 
-        set_coin(set_level()); //ÃÊ±â ÄÚÀÎ ¼³Á¤
+        set_coin(set_level()); //ì´ˆê¸° ì½”ì¸ ì„¤ì •
 
-        //ÃÊ±â ÀÎÅÍÆäÀÌ½º ¼¼ÆÃ
+        //ì´ˆê¸° ì¸í„°í˜ì´ìŠ¤ ì„¸íŒ…
         ani_1();
 
         gotoxy(45, 3);
-        printf("ÆÇµ·: %d", bet_coin);   //ÆÇµ·
+        printf("íŒëˆ: %d", bet_coin);   //íŒëˆ
 
         gotoxy(27, 15);
         printf("P: %d", player_coin);
-        gotoxy(65, 15);                 //ÄÚÀÎ°³¼ö
+        gotoxy(65, 15);                 //ì½”ì¸ê°œìˆ˜
         printf("COM: %d", com_coin);
 
         clear_cursor(0);
 
         rdot(21, 5);
-        rdot(59, 5);                    //°¡À§¹ÙÀ§º¸ µµÆ®
+        rdot(59, 5);                    //ê°€ìœ„ë°”ìœ„ë³´ ë„íŠ¸
 
         gotoxy(11, 17);
         printf("------------------------------------------------------------------------------");
-        gotoxy(11, 23);                                                                             //±Û»óÀÚ
+        gotoxy(11, 23);                                                                             //ê¸€ìƒì
         printf("------------------------------------------------------------------------------");
 
 
@@ -82,21 +82,21 @@ int main(void)
             rewind(stdin);
             betting();
 
-            int result = match(); //¹«½ÂºÎ(0)  ½Â¸®(1)  ÆĞ¹è(2)
+            int result = match(); //ë¬´ìŠ¹ë¶€(0)  ìŠ¹ë¦¬(1)  íŒ¨ë°°(2)
 
             switch (result)
             {
             case 0:
                 gotoxy(11, 20);
-                printf("                                   ¹«½ÂºÎ~~~");
-                ani_2(1); //ÆÄ¶õ»ö
+                printf("                                   ë¬´ìŠ¹ë¶€~~~");
+                ani_2(1); //íŒŒë€ìƒ‰
 
                 break;
 
             case 1:
                 gotoxy(11, 20);
-                printf("                                   ½Â¸®!!!");
-                ani_2(2); //ÃÊ·Ï»ö
+                printf("                                   ìŠ¹ë¦¬!!!");
+                ani_2(2); //ì´ˆë¡ìƒ‰
 
                 com_coin -= bet_coin;
                 player_coin += bet_coin;
@@ -104,8 +104,8 @@ int main(void)
 
             case 2:
                 gotoxy(11, 20);
-                printf("                                   ÆĞ¹è...");
-                ani_2(0); //»¡°£»ö
+                printf("                                   íŒ¨ë°°...");
+                ani_2(0); //ë¹¨ê°„ìƒ‰
 
                 player_coin -= bet_coin;
                 com_coin += bet_coin;
@@ -196,11 +196,11 @@ int title()
 
     gotoxy(19 + 25, 16);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-    printf("°ÔÀÓ½ÃÀÛ");
+    printf("ê²Œì„ì‹œì‘");
 
     gotoxy(19 + 25, 19);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-    printf("°ÔÀÓÁ¾·á");
+    printf("ê²Œì„ì¢…ë£Œ");
 
     while (1)
     {
@@ -216,12 +216,12 @@ int title()
 
                 gotoxy(19 + 25, 16);
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-                printf("°ÔÀÓ½ÃÀÛ");
+                printf("ê²Œì„ì‹œì‘");
 
 
                 gotoxy(19 + 25, 19);
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-                printf("°ÔÀÓÁ¾·á");
+                printf("ê²Œì„ì¢…ë£Œ");
 
                 break;
 
@@ -231,11 +231,11 @@ int title()
 
                 gotoxy(19 + 25, 16);
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-                printf("°ÔÀÓ½ÃÀÛ");
+                printf("ê²Œì„ì‹œì‘");
 
                 gotoxy(19 + 25, 19);
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-                printf("°ÔÀÓÁ¾·á");
+                printf("ê²Œì„ì¢…ë£Œ");
 
                 break;
 
@@ -384,15 +384,15 @@ void set_coin(float level)
         ani_1();
 
         gotoxy(32, 10);
-        printf("ÃÊ±â ÄÚÀÎÀ» ¼³Á¤ÇØÁÖ¼¼¿ä:");
+        printf("ì´ˆê¸° ì½”ì¸ì„ ì„¤ì •í•´ì£¼ì„¸ìš”:");
         scanf("%d", &player_coin);
 
         if (player_coin <= 0)
         {
             player_coin = -1;
-            system("cls"); //Ãâ·Â È­¸é ÃÊ±âÈ­
+            system("cls"); //ì¶œë ¥ í™”ë©´ ì´ˆê¸°í™”
             gotoxy(35, 10);
-            printf("´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+            printf("ë‹¤ì‹œ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
             rewind(stdin);
             Sleep(1000);
         }
@@ -406,7 +406,7 @@ void set_coin(float level)
     }
 
 
-    system("cls"); //Ãâ·Â È­¸é ÃÊ±âÈ­
+    system("cls"); //ì¶œë ¥ í™”ë©´ ì´ˆê¸°í™”
 
     return;
 }
@@ -419,14 +419,14 @@ void betting()
         clear();
 
         gotoxy(11, 20);
-        printf("                           ÆÇµ·À» Á¤ÇØÁÖ¼¼¿ä: ");
+        printf("                           íŒëˆì„ ì •í•´ì£¼ì„¸ìš”: ");
         scanf("%d", &bet_coin);
 
         if (bet_coin <= 0 || bet_coin > player_coin || bet_coin > com_coin)
         {
             clear();
             gotoxy(11, 20);
-            printf("                            ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä ");
+            printf("                            ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš” ");
             rewind(stdin);
             Sleep(1000);
         }
@@ -439,7 +439,7 @@ void betting()
     }
 
     gotoxy(45, 3);
-    printf("ÆÇµ·: %d                             ", bet_coin);
+    printf("íŒëˆ: %d                             ", bet_coin);
 
     clear();
     return;
@@ -456,31 +456,31 @@ int select_player()
     {
         switch (select)
         {
-        case 1: //°¡À§
+        case 1: //ê°€ìœ„
             gotoxy(11, 20);
-            printf("                      °¡À§            ¹ÙÀ§            º¸");
+            printf("                      ê°€ìœ„            ë°”ìœ„            ë³´");
             gotoxy(33, 20);
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-            printf("°¡À§");
+            printf("ê°€ìœ„");
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
             break;
 
 
-        case 2: //¹ÙÀ§
+        case 2: //ë°”ìœ„
             gotoxy(11, 20);
-            printf("                      °¡À§            ¹ÙÀ§            º¸");
+            printf("                      ê°€ìœ„            ë°”ìœ„            ë³´");
             gotoxy(49, 20);
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-            printf("¹ÙÀ§");
+            printf("ë°”ìœ„");
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
             break;
 
-        case 3: //º¸
+        case 3: //ë³´
             gotoxy(11, 20);
-            printf("                      °¡À§            ¹ÙÀ§            º¸");
+            printf("                      ê°€ìœ„            ë°”ìœ„            ë³´");
             gotoxy(65, 20);
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-            printf("º¸");
+            printf("ë³´");
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
             break;
         }
@@ -548,17 +548,17 @@ int select_computer()
 
         switch (select)
         {
-        case 1: //°¡À§
+        case 1: //ê°€ìœ„
             sdot(59, 5);
             Sleep(1 + (i * 5));
             break;
 
-        case 2: //¹ÙÀ§
+        case 2: //ë°”ìœ„
             rdot(59, 5);
             Sleep(1 + (i * 5));
             break;
 
-        case 3: //º¸
+        case 3: //ë³´
             pdot(59, 5);
             Sleep(1 + (i * 5));
             break;
@@ -578,11 +578,11 @@ int match()
 
     switch (result)
     {
-    case 0: //¹«½ÂºÎ
+    case 0: //ë¬´ìŠ¹ë¶€
         return 0;
-    case 1: //½Â¸®
+    case 1: //ìŠ¹ë¦¬
         return 1;
-    case 2: //ÆĞ¹è
+    case 2: //íŒ¨ë°°
         return 2;
     }
 
@@ -607,7 +607,7 @@ void stats(int result)
     }
 
     gotoxy(11, 20);
-    printf("                             %dÀü- ½Â:%d ¹«:%d ÆĞ:%d ½Â·ü:%.2lf%%", draw + win + lose, win, draw, lose, 100 * ((double)win / ((double)win + (double)lose + (double)draw)));
+    printf("                             %dì „- ìŠ¹:%d ë¬´:%d íŒ¨:%d ìŠ¹ë¥ :%.2lf%%", draw + win + lose, win, draw, lose, 100 * ((double)win / ((double)win + (double)lose + (double)draw)));
     Sleep(3000);
 
     clear();
@@ -870,7 +870,7 @@ void gotoxy(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
 
-void clear_cursor(char show)//Ä¿¼­¼û±â±â
+void clear_cursor(char show)//ì»¤ì„œìˆ¨ê¸°ê¸°
 {
     HANDLE hConsole;
     CONSOLE_CURSOR_INFO ConsoleCursor;
@@ -883,5 +883,5 @@ void clear_cursor(char show)//Ä¿¼­¼û±â±â
     SetConsoleCursorInfo(hConsole, &ConsoleCursor);
 }
 
-// 21.5  //ÇÃ·¹ÀÌ¾îÂÊ ÀÌ¹ÌÁö ÁÂÇ¥
-// 59,5  //ÄÄÇ»ÅÍÂÊ ÀÌ¹ÌÁö ÁÂÇ¥
+// 21.5  //í”Œë ˆì´ì–´ìª½ ì´ë¯¸ì§€ ì¢Œí‘œ
+// 59,5  //ì»´í“¨í„°ìª½ ì´ë¯¸ì§€ ì¢Œí‘œ
