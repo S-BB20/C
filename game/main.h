@@ -1,13 +1,13 @@
 #pragma once
 #include<stdio.h>
-#include<stdlib.h> //rand, strcmp ÇÔ¼ö¸¦ »ç¿ë
-#include<time.h> //time ÇÔ¼ö¸¦ »ç¿ë
-#include<windows.h> //system ÇÔ¼ö¸¦ »ç¿ë
-#include<stdbool.h>//while(true)ÇÔ¼ö¸¦ »ç¿ë
-#include<conio.h> //getch ÇÔ¼ö »ç¿ë
-#include<string.h> //strcpy ÇÔ¼ö »ç¿ë
+#include<stdlib.h> //rand, strcmp í•¨ìˆ˜ë¥¼ ì‚¬ìš©
+#include<time.h> //time í•¨ìˆ˜ë¥¼ ì‚¬ìš©
+#include<windows.h> //system í•¨ìˆ˜ë¥¼ ì‚¬ìš©
+#include<stdbool.h>//while(true)í•¨ìˆ˜ë¥¼ ì‚¬ìš©
+#include<conio.h> //getch í•¨ìˆ˜ ì‚¬ìš©
+#include<string.h> //strcpy í•¨ìˆ˜ ì‚¬ìš©
 
-//Àü¿ªº¯¼ö ¹× ¸ÅÅ©·Î
+//ì „ì—­ë³€ìˆ˜ ë° ë§¤í¬ë¡œ
 #define cls system("cls")
 #define UP 72
 #define DOWN 80 
@@ -16,7 +16,7 @@
 #define ROWS 18
 #define COLS 114
 
-//±¸Á¶Ã¼
+//êµ¬ì¡°ì²´
 #pragma pack(push, 1) 
 typedef struct player
 {
@@ -55,39 +55,39 @@ typedef struct sympathizer {
 }sympathizer;
 
 typedef struct monster {
-	struct attacker at; //°¡ÇØÀÚ
-	struct bystander by; //¹æ°üÀÚ
+	struct attacker at; //ê°€í•´ì
+	struct bystander by; //ë°©ê´€ì
 	struct sympathizer sy;
 	char monster_kill[5];
 }monster;
 #pragma pack(pop) 
 
 
-//±âº»ÀûÀÎ ±â´É Á¦°ø ÇÔ¼ö
-void gotoxy(int x, int y); // Ä¿¼­ À§Ä¡ ÀÌµ¿ ÇÔ¼ö
-void clear_cursor(char show); //Ä¿¼­ ¼û±â±â ÇÔ¼ö
-void textcolor(int color_number); //±ÛÀÚ »ö ¹Ù²Ù±â ÇÔ¼ö
+//ê¸°ë³¸ì ì¸ ê¸°ëŠ¥ ì œê³µ í•¨ìˆ˜
+void gotoxy(int x, int y); // ì»¤ì„œ ìœ„ì¹˜ ì´ë™ í•¨ìˆ˜
+void clear_cursor(char show); //ì»¤ì„œ ìˆ¨ê¸°ê¸° í•¨ìˆ˜
+void textcolor(int color_number); //ê¸€ì ìƒ‰ ë°”ê¾¸ê¸° í•¨ìˆ˜
 
 
-//È­¸é Ãâ·Â¿ë ÇÔ¼ö
-//¼±ÅÃÁö ¼±ÅÃÇÏ´Â ÇÔ¼ö(¿É¼Ç ÀÌ¸§1, ÀÌ¸§2, ÀÌ¸§3, ¿É¼Ç2ÀÇ xÀ§Ä¡, yÀ§Ä¡, ¼±ÅÃÁö °³¼ö, ¿É¼Ç »çÀÌ °Å¸®)
+//í™”ë©´ ì¶œë ¥ìš© í•¨ìˆ˜
+//ì„ íƒì§€ ì„ íƒí•˜ëŠ” í•¨ìˆ˜(ì˜µì…˜ ì´ë¦„1, ì´ë¦„2, ì´ë¦„3, ì˜µì…˜2ì˜ xìœ„ì¹˜, yìœ„ì¹˜, ì„ íƒì§€ ê°œìˆ˜, ì˜µì…˜ ì‚¬ì´ ê±°ë¦¬)
 int start_option(char option1[30], char option2[30], char option3[30], int x, int y, int n, int enter); 
-//»ç°¢Çü Ã¢ ¶ç¿ì±â (½ÃÀÛ xÀ§Ä¡, yÀ§Ä¡, r°¡·ÎÅ©±â, h¼¼·ÎÅ©±â), ±âº» : (3, 20, 110, 7))
+//ì‚¬ê°í˜• ì°½ ë„ìš°ê¸° (ì‹œì‘ xìœ„ì¹˜, yìœ„ì¹˜, rê°€ë¡œí¬ê¸°, hì„¸ë¡œí¬ê¸°), ê¸°ë³¸ : (3, 20, 110, 7))
 void story_square(int x, int y, int r, int h); 
 
-//¼¼ÀÌºê ¹× ·Îµå ¿ë ÇÔ¼ö
-void save_data(struct player pl, struct monster mon); //¼¼ÀÌºê¿ë ÇÔ¼ö
-void load_data(struct player* pl, struct monster* mon); //·Îµå¿ë ÇÔ¼ö
+//ì„¸ì´ë¸Œ ë° ë¡œë“œ ìš© í•¨ìˆ˜
+void save_data(struct player pl, struct monster mon); //ì„¸ì´ë¸Œìš© í•¨ìˆ˜
+void load_data(struct player* pl, struct monster* mon); //ë¡œë“œìš© í•¨ìˆ˜
 
-//°ÔÀÓ ±¸Çö ÇÔ¼ö
+//ê²Œì„ êµ¬í˜„ í•¨ìˆ˜
 int keeper(int(*map)[COLS], int X, int Y, int n);
 void monster_fight(struct player* pl, struct monster* mon, char monster_name[5]);
 void monster_move(struct player* pl, struct monster* mon, int X, int Y, int startX, int startY, int* map_re);
 void map_print(struct player* pl, int startX, int map[ROWS][COLS]);
 int move_player(struct player* pl, struct monster* mon);
 
-//½ºÅä¸® ±¸Çö ÇÔ¼ö
-void set_name(char name[30]); //ÀÌ¸§ ¼³Á¤ ÇÔ¼ö
+//ìŠ¤í† ë¦¬ êµ¬í˜„ í•¨ìˆ˜
+void set_name(char name[30]); //ì´ë¦„ ì„¤ì • í•¨ìˆ˜
 void prolog(char name[30]); 
 void story();
 void ending();
