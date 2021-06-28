@@ -1,10 +1,10 @@
 #include<stdio.h>
-#include<stdlib.h> //rand, strcmp ÇÔ¼ö¸¦ »ç¿ë
-#include<time.h> //time ÇÔ¼ö¸¦ »ç¿ë
-#include<windows.h> //system ÇÔ¼ö¸¦ »ç¿ë
-#include<stdbool.h>//while(true)ÇÔ¼ö¸¦ »ç¿ë
-#include<conio.h> //getch ÇÔ¼ö »ç¿ë
-#include<string.h> //strcpy ÇÔ¼ö »ç¿ë
+#include<stdlib.h> //rand, strcmp í•¨ìˆ˜ë¥¼ ì‚¬ìš©
+#include<time.h> //time í•¨ìˆ˜ë¥¼ ì‚¬ìš©
+#include<windows.h> //system í•¨ìˆ˜ë¥¼ ì‚¬ìš©
+#include<stdbool.h>//while(true)í•¨ìˆ˜ë¥¼ ì‚¬ìš©
+#include<conio.h> //getch í•¨ìˆ˜ ì‚¬ìš©
+#include<string.h> //strcpy í•¨ìˆ˜ ì‚¬ìš©
 
 /*  number_ani('0', 14, 10);
 	number_ani('S', 30, 10);
@@ -33,11 +33,11 @@ int main(void)
 		{
 		case 0:
 			system("cls");
-			break;   //°ÔÀÓ½ÃÀÛ
+			break;   //ê²Œìž„ì‹œìž‘
 
 		case 1:
 			system("cls");
-			exit(0); //°ÔÀÓÁ¾·á
+			exit(0); //ê²Œìž„ì¢…ë£Œ
 		}
 
 		system("cls");
@@ -89,7 +89,7 @@ int title()
 
 
 
-	for (x = -R - 1; x < R + 2; x += 2) //ÄÜ¼Ö È­¸éÀÇ °¡·Î : ¼¼·Î°¡ 1 : 2 ÀÌ´Ù. 
+	for (x = -R - 1; x < R + 2; x += 2) //ì½˜ì†” í™”ë©´ì˜ ê°€ë¡œ : ì„¸ë¡œê°€ 1 : 2 ì´ë‹¤. 
 	{
 
 		for (y = -R - 5; y < R + 5; y++) {
@@ -154,11 +154,11 @@ int title()
 
 	gotoxy(41, 26);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-	printf("°ÔÀÓ½ÃÀÛ");
+	printf("ê²Œìž„ì‹œìž‘");
 
 	gotoxy(41, 29);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-	printf("°ÔÀÓÁ¾·á");
+	printf("ê²Œìž„ì¢…ë£Œ");
 
 	while (1)
 	{
@@ -174,12 +174,12 @@ int title()
 
 				gotoxy(41, 26);
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-				printf("°ÔÀÓ½ÃÀÛ");
+				printf("ê²Œìž„ì‹œìž‘");
 
 
 				gotoxy(41, 29);
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-				printf("°ÔÀÓÁ¾·á");
+				printf("ê²Œìž„ì¢…ë£Œ");
 
 				break;
 
@@ -189,11 +189,11 @@ int title()
 
 				gotoxy(41, 26);
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-				printf("°ÔÀÓ½ÃÀÛ");
+				printf("ê²Œìž„ì‹œìž‘");
 
 				gotoxy(41, 29);
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-				printf("°ÔÀÓÁ¾·á");
+				printf("ê²Œìž„ì¢…ë£Œ");
 
 				break;
 
@@ -214,7 +214,7 @@ void set_player(int arr[], int turn)
 	while (1)
 	{
 		gotoxy(14, 22);
-		printf("[%dÅÏ] ¼ýÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä:____\b\b\b\b", turn + 1);
+		printf("[%dí„´] ìˆ«ìžë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”:____\b\b\b\b", turn + 1);
 
 		int n;
 		if (scanf("%d", &n) == 0)
@@ -327,7 +327,7 @@ void arr_compare(int player[], int com[], int x, int y)
 	{
 		ball_p(com[0] + 48, com[1] + 48, com[2] + 48, com[3] + 48);
 		gotoxy(x + 4, y);
-		printf("½Â¸®ÇÏ¿´½À´Ï´Ù.");
+		printf("ìŠ¹ë¦¬í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		return 1;
 
 	}
@@ -580,7 +580,7 @@ void background(void)
 {
 	int x, y, R = 40;
 
-	for (x = -R - 1; x < R + 2; x += 2) //ÄÜ¼Ö È­¸éÀÇ °¡·Î : ¼¼·Î°¡ 1 : 2 ÀÌ´Ù. 
+	for (x = -R - 1; x < R + 2; x += 2) //ì½˜ì†” í™”ë©´ì˜ ê°€ë¡œ : ì„¸ë¡œê°€ 1 : 2 ì´ë‹¤. 
 	{
 
 		for (y = -R - 5; y < R + 5; y++) {
