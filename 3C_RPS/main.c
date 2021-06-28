@@ -882,6 +882,5 @@ void clear_cursor(char show)//커서숨기기
 
     SetConsoleCursorInfo(hConsole, &ConsoleCursor);
 }
-
 // 21.5  //플레이어쪽 이미지 좌표
 // 59,5  //컴퓨터쪽 이미지 좌표
