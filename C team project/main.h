@@ -1,4 +1,3 @@
-#pragma once
 #include<stdio.h>
 #include<stdlib.h> //rand, strcmp 함수를 사용
 #include<time.h> //time 함수를 사용
